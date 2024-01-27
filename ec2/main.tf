@@ -23,3 +23,15 @@ resource "aws_instance" "web" {
     managed_by = "terraform"
   }
 }
+
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+  vpc_id      = data.terraform_remote_state.this.output.vpc_id
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
+
+
