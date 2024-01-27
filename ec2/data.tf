@@ -13,7 +13,7 @@ data "terraform_remote_state" "this" {
 
 
 # pulls DB information
-data "terraform_remote_state" "this" {
+data "terraform_remote_state" "rds" {
   backend = "remote"
 
   config = {
